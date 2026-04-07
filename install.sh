@@ -242,6 +242,7 @@ if [[ -d "$SWIFTBAR_DIR" ]] || command -v swiftbar &>/dev/null; then
 
 ZYRCON_START="$HOME/.zyrcon/start.sh"
 LOG="$HOME/.zyrcon/logs/zyrcon.log"
+SELF="$HOME/SwiftBar/zyrcon.5s.sh"
 
 case "$1" in
   start)  nohup bash "$ZYRCON_START" >> "$LOG" 2>&1 & disown; exit 0 ;;
@@ -259,15 +260,15 @@ if $zyrcon_ok; then
     echo "Zyrcon AI v0.1 | font=Menlo-Bold color=#FFFFFF"
     echo "Online :8080  •  jobs: $JOBS | color=#00C853"
     echo "---"
-    echo "Stop Zyrcon | bash='$0' param1=stop terminal=false refresh=true color=#FF6B6B"
-    echo "View Logs | bash='$0' param1=logs terminal=false color=#888888"
+    echo "Stop Zyrcon | bash='$SELF' param1=stop terminal=false refresh=true color=#FF6B6B"
+    echo "View Logs | bash='$SELF' param1=logs terminal=false color=#888888"
 else
     echo "◯ Z | color=#FF3B30 font=Menlo-Bold size=12"
     echo "---"
     echo "Zyrcon AI v0.1 | font=Menlo-Bold color=#FFFFFF"
     echo "Offline | color=#FF3B30"
     echo "---"
-    echo "Start Zyrcon | bash='$0' param1=start terminal=false refresh=true color=#00C853"
+    echo "Start Zyrcon | bash='$SELF' param1=start terminal=false refresh=true color=#00C853"
 fi
 echo "---"
 echo "Refresh | refresh=true color=#888888"
